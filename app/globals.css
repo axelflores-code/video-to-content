@@ -1,0 +1,76 @@
+/* app/globals.css */
+@import "tailwindcss";
+
+/* ==========================================
+   1. ESTILOS BASE (Selectores CSS estándar)
+   ========================================== */
+:root {
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #0A0A0F;
+  color: #F0F0FF;
+  font-family: var(--font-inter), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Scrollbar personalizado */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0A0A0F;
+}
+::-webkit-scrollbar-thumb {
+  background: #2A2A3A;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #7C3AED;
+}
+
+
+/* ==========================================
+   2. COMPONENTES Y UTILIDADES (Sintaxis v4)
+   ========================================== */
+
+/* Efecto glow reutilizable para el acento */
+@utility glow-accent {
+  box-shadow: 0 0 20px rgba(124, 58, 237, 0.2), 0 0 60px rgba(124, 58, 237, 0.065);
+}
+
+/* Borde con gradiente */
+@utility border-gradient {
+  border: 1px solid transparent;
+  background-clip: padding-box;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(135deg, rgba(124, 58, 237, 0.26), #2A2A3A, rgba(124, 58, 237, 0.13));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+}
+
+/* Balance de texto */
+@utility text-balance {
+  text-wrap: balance;
+}
